@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Dark Mode</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333333;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .btn:active {
+            transform: scale(1.05);
+        }
+
+        .card {
+            max-width: 380px;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid black;
+            text-align: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+    <button class="btn" id="toggleDarkMode">🌙 Dark Mode</button>
+
+    <div class="card">
+        <h2>Belajar Dark Mode</h2>
+        <p>Ini adalah contoh card sederhana. Saat tombol di atas diklik, warna latar belakang halaman dan kartu akan
+            berganti secara otomatis.</p>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleDarkMode');
+
+        toggleBtn.addEventListener("click", function () {
+            const isDark = document.body.classList.toggle('dark-mode');
+            toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        });
+    </script>
+</body>
+
+</html>
